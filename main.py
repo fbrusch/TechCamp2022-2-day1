@@ -1,4 +1,9 @@
-a = 10
-print(a)
-a = a + 1
-print(a)
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((300,300))
+
+pygame.draw.rect(screen, (100,100,100),   (0,0,300,300))
+
+pygame.display.flip() # draw everything
