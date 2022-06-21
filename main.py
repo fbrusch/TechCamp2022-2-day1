@@ -96,8 +96,9 @@ while True:
   else:
     q2_is_inside_box = False
 
-if keys[pygame.K_SPACE]:
-  if q2_is_inside_box == True:
-    q2x = 10000
-    q2y = 10000
-    score = score + 1
+  if keys[pygame.K_SPACE]:
+    #print("space premuto")
+    if q2_is_inside_box == True:
+      q2x = 10000
+      q2y = 10000
+      score = score + 1
