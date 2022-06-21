@@ -7,8 +7,8 @@ pygame.init()
 screen = pygame.display.set_mode((300,300))
 
 # state variables
-x = 0      # box x position
-y = 0      # box y position
+x = 50      # box x position
+y = 150      # box y position
 vx = 3
 vy = 1
 
@@ -20,10 +20,30 @@ while True:
   
   pygame.display.flip() # draw everything
   time.sleep(0.02)
-  
+
+  # linear motion
   x = x + vx
   y = y + vy
-  vy = vy + 0.1
+
+  # friction
+  #vx = vx*0.98
+  #vy = vy*0.98
+  
+  # vy = vy + 0.3
+
+  # spring in the center
+  pygame.event.get()
+  keys = pygame.key.get_pressed()
+  if keys[pygame.K_UP]:
+    vy = vy - 0.1
+  if keys[pygame.K_DOWN]:
+    vy = vy + 0.1
+  if keys[pygame.K_LEFT]:
+    vx = vx - 0.1
+  if keys[pygame.K_RIGHT]:
+    vx = vx + 0.1
+    
+  
 
   # se l'oggetto sta uscendo dal mondo: esegui vx = -vx
   if x + 50 > 300:
