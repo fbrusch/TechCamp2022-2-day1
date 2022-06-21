@@ -1,5 +1,6 @@
 import pygame
 import time
+import random
 
 pygame.init()
 
@@ -86,6 +87,10 @@ while True:
     q2x = 0
   if q2y > 300:
     q2y = 0
+  if q2y < 0:
+    q2y = 300
+  if q2x < 0:
+    q2x = 300
 
   if is_point_inside_box(x,y,50,50,
                         q2x, q2y) and \
@@ -99,6 +104,10 @@ while True:
   if keys[pygame.K_SPACE]:
     #print("space premuto")
     if q2_is_inside_box == True:
-      q2x = 10000
-      q2y = 10000
+      q2x = random.randint(0,300)
+      q2y = random.randint(0,300)
+      q2vx = random.randint(-2,2)
+      q2vy = random.randint(-2,2)
+      
       score = score + 1
+      print(score)
